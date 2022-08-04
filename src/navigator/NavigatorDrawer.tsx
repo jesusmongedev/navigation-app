@@ -2,15 +2,16 @@ import React from 'react';
 import { useWindowDimensions, Image, View, Alert, Text, StyleSheet } from 'react-native';
 
 import { createDrawerNavigator, DrawerContentComponentProps, DrawerContentScrollView, DrawerItem, DrawerItemList } from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
 import { StackNavigator } from './StackNavigator';
 
-import SettingsScreen from '../screens/SettingsScreen';
 import { ColorPalette } from '../constants';
 import { styles } from '../theme/appTheme';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import ProfileScreen from '../screens/ProfileScreen';
 import { RootDrawerParams } from '../models/StackNavigator';
-import { createStackNavigator } from '@react-navigation/stack';
+import { Tabs } from './Tabs';
+import { ProfileScreen, SettingsScreen } from '../screens';
 
 const Drawer = createDrawerNavigator<RootDrawerParams>();
 
@@ -43,7 +44,7 @@ export const NavigatorDrawer = () => {
       }}
       drawerContent = { (props) => <DrawerContent {...props} /> }
     >
-      <Drawer.Screen name="StackNavigator" component={StackNavigator} />
+      <Drawer.Screen name="Tabs" component={Tabs} />
       <Drawer.Screen name="SettingsStackScreen" component={SettingsStackScreen} />
       <Drawer.Screen name="ProfileScreen" component={ProfileScreen} />
     </Drawer.Navigator>
@@ -71,8 +72,8 @@ const DrawerContent = ( props: DrawerContentComponentProps ) => {
       </View>
 
         {/* Default components */}
-        {/* <DrawerItemList {...props} />
-        <DrawerItem 
+        {/* <DrawerItemList {...props} /> */}
+        {/* <DrawerItem 
           label='Profile'
           onPress={() => Alert.alert('Profile Page')}
         /> */}
@@ -81,9 +82,9 @@ const DrawerContent = ( props: DrawerContentComponentProps ) => {
         <View style={ drawerStyles.drawerList }>
 
           <TouchableOpacity 
-            onPress={ () => { navigation.navigate('StackNavigator') }}
+            onPress={ () => { navigation.navigate('Tabs') }}
             style={ drawerStyles.drawerBtn }>
-            <Text style={ drawerStyles.drawerLabel }>Home</Text>
+            <Text style={ drawerStyles.drawerLabel }>Tabs</Text>
           </TouchableOpacity>
 
           <TouchableOpacity 
@@ -99,13 +100,13 @@ const DrawerContent = ( props: DrawerContentComponentProps ) => {
           </TouchableOpacity>
 
           <TouchableOpacity 
-            onPress={() => Alert.alert('Blog Page')}
+            onPress={() => Alert.alert('Portfolio Page')}
             style={ drawerStyles.drawerBtn }>
             <Text style={ drawerStyles.drawerLabel }>Portfolio</Text>
           </TouchableOpacity>
 
           <TouchableOpacity 
-            onPress={() => Alert.alert('Blog Page')}
+            onPress={() => Alert.alert('Contact Page')}
             style={ drawerStyles.drawerBtn }>
             <Text style={ drawerStyles.drawerLabel }>Contact</Text>
           </TouchableOpacity>

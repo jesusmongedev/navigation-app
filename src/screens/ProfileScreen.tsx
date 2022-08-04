@@ -3,7 +3,7 @@ import React from 'react'
 import { styles } from '../theme/appTheme';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-export default function ProfileScreen() {
+export const ProfileScreen = () => {
 
   // Custom way to handle safe Area on devices with notch
   const inset = useSafeAreaInsets();

@@ -11,7 +11,7 @@ import { StackProps } from '../models/StackNavigator';
 //   skills: string[]
 // }
 
-export default function PersonScreen({ route: {params}, navigation: {setOptions} }: StackProps) {
+export const PersonScreen = ({ route: {params}, navigation: {setOptions} }: StackProps) => {
 
   //* Fast way to get TS autocompletion
   // const params = route.params as RouteParams

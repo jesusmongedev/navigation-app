@@ -1,4 +1,3 @@
-import { DrawerScreenProps } from "@react-navigation/drawer";
 import { StackScreenProps } from "@react-navigation/stack";
 import { UserInterface } from "./user.model";
 
@@ -12,8 +11,13 @@ export type RootStackParams = {
 export interface StackProps extends StackScreenProps <RootStackParams, 'PersonScreen'>{};
 
 export type RootDrawerParams = {
-    'StackNavigator': undefined, 
+    'Tabs': undefined, 
     'SettingsStackScreen': undefined, 
     'ProfileScreen': undefined, 
 }
 
+export type BottomTabParams = {
+    'Tab1Screen': undefined,
+    'Tab2Screen': undefined,
+    'StackNavigator': undefined
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { StackNavigator } from './StackNavigator';
-import SettingsScreen from '../screens/SettingsScreen';
 import { ColorPalette } from '../constants';
 import { useWindowDimensions } from 'react-native';
+import { SettingsScreen } from '../screens';
 
 const Drawer = createDrawerNavigator();
 

@@ -1,10 +1,8 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { Page1Screen } from '../screens/Page1Screen';
-import { Page2Screen } from '../screens/Page2Screen';
-import { Page3Screen } from '../screens/Page3Screen';
-import PersonScreen from '../screens/PersonScreen';
+
 import { RootStackParams } from '../models/StackNavigator';
+import { Page1Screen, Page2Screen, Page3Screen, PersonScreen } from '../screens';
 
 const Stack = createStackNavigator<RootStackParams>();
 

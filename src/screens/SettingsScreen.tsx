@@ -2,7 +2,7 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { styles } from '../theme/appTheme';
 
-export default function SettingsScreen() {
+export const SettingsScreen = () => {
   return (
     <View>
       <Text style={styles.title}> Settings Screen </Text>
