@@ -5,10 +5,9 @@ import { createDrawerNavigator, DrawerContentComponentProps, DrawerContentScroll
 import { createStackNavigator } from '@react-navigation/stack';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-import { StackNavigator } from './StackNavigator';
-
 import { ColorPalette } from '../constants';
 import { styles } from '../theme/appTheme';
+
 import { RootDrawerParams } from '../models/StackNavigator';
 import { Tabs } from './Tabs';
 import { ProfileScreen, SettingsScreen } from '../screens';

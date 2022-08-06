@@ -1,16 +1,75 @@
 import React from 'react';
+import {Platform, Text} from 'react-native';
+
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+
 import {Tab1Screen, Tab2Screen} from '../screens';
 import {StackNavigator} from './StackNavigator';
+
 import {ColorPalette} from '../constants';
-import {Text} from 'react-native';
 import { BottomTabParams } from '../models/StackNavigator';
+import colors from '../constants/colors';
 
-const Tab = createBottomTabNavigator<BottomTabParams>();
+export const Tabs = () => Platform.OS === 'android' ? <TabAndroid/> : <TabIOS/>
 
-export const Tabs = () => {
+
+const BottomTabAndroid = createMaterialBottomTabNavigator();
+
+const TabAndroid = () => {
   return (
-    <Tab.Navigator
+    <BottomTabAndroid.Navigator
+      sceneAnimationEnabled={true}
+      barStyle={{ backgroundColor: colors.primaryColor }}
+      
+      screenOptions= {({route}) => ({ 
+        tabBarIcon: ({ color, focused }) => {
+
+          const {name} = route
+
+          console.log(JSON.stringify({color, focused, name}, null, 2));
+
+          let iconName: string = "";
+          
+          switch (name) {
+            case 'Tab1Screen':
+              iconName = '🔷'
+              break;
+
+            case 'Tab2Screen':
+              iconName = '🖤'
+              break;
+
+            case 'StackNavigator':
+              iconName = '❌'
+              break;
+
+          
+            default:
+              break;
+          }
+
+          return <Text>{ iconName }</Text>
+        }
+      })}
+        
+    >
+      <BottomTabAndroid.Screen name="Tab1Screen"
+        component={Tab1Screen} />
+      <BottomTabAndroid.Screen  name="Tab2Screen"
+        component={Tab2Screen} />
+      <BottomTabAndroid.Screen  name="StackNavigator"
+        component={StackNavigator} />
+    </BottomTabAndroid.Navigator>
+  );
+}
+
+
+const BottomTabIOS = createBottomTabNavigator<BottomTabParams>();
+
+const TabIOS = () => {
+  return (
+    <BottomTabIOS.Navigator
       sceneContainerStyle = {{
         backgroundColor: 'white'
       }}
@@ -22,7 +81,6 @@ export const Tabs = () => {
         tabBarLabelStyle: {fontSize: 20, fontWeight: '500'},
         tabBarStyle: {backgroundColor: ColorPalette.primaryColor},
         tabBarIcon: ({color, focused, size}) => {
-          console.log(focused, size);
           
           const {name} = route
           let iconName: string = "";
@@ -50,7 +108,7 @@ export const Tabs = () => {
         
       })}
       >
-      <Tab.Screen
+      <BottomTabIOS.Screen
         name="Tab1Screen"
         component={Tab1Screen}
         options={{
@@ -58,7 +116,7 @@ export const Tabs = () => {
           // tabBarIcon: () => <Text>⚪</Text>
         }}
       />
-      <Tab.Screen
+      <BottomTabIOS.Screen
         name="Tab2Screen"
         component={Tab2Screen}
         options={{
@@ -68,7 +126,7 @@ export const Tabs = () => {
           tabBarBadgeStyle: {backgroundColor: ColorPalette.error}
         }}
       />
-      <Tab.Screen
+      <BottomTabIOS.Screen
         name="StackNavigator"
         component={StackNavigator}
         options={{
@@ -76,6 +134,6 @@ export const Tabs = () => {
           // tabBarIcon: () =>  <Text>💮</Text> 
         }}
       />
-    </Tab.Navigator>
+    </BottomTabIOS.Navigator>
   );
 };
