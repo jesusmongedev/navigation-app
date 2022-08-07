@@ -9,7 +9,7 @@ import {StackNavigator} from './StackNavigator';
 
 import {ColorPalette} from '../constants';
 import { BottomTabParams } from '../models/StackNavigator';
-import colors from '../constants/colors';
+import { TopTabNavigator } from './MaterialTopTab';
 
 export const Tabs = () => Platform.OS === 'android' ? <TabAndroid/> : <TabIOS/>
 
@@ -20,7 +20,7 @@ const TabAndroid = () => {
   return (
     <BottomTabAndroid.Navigator
       sceneAnimationEnabled={true}
-      barStyle={{ backgroundColor: colors.primaryColor }}
+      barStyle={{ backgroundColor: ColorPalette.primaryColor }}
       
       screenOptions= {({route}) => ({ 
         tabBarIcon: ({ color, focused }) => {
@@ -57,7 +57,7 @@ const TabAndroid = () => {
       <BottomTabAndroid.Screen name="Tab1Screen"
         component={Tab1Screen} />
       <BottomTabAndroid.Screen  name="Tab2Screen"
-        component={Tab2Screen} />
+        component={TopTabNavigator} />
       <BottomTabAndroid.Screen  name="StackNavigator"
         component={StackNavigator} />
     </BottomTabAndroid.Navigator>

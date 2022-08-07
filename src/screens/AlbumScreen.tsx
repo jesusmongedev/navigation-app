@@ -1,11 +1,11 @@
-import { View, Text } from 'react-native'
 import React from 'react'
+import { View, Text } from 'react-native'
 import { styles } from '../theme/TopTabScreenStyles'
 
-export const Tab1Screen = () => {
+export const AlbumScreen = () => {
   return (
     <View style={ styles.container }>
-      <Text style={ styles.text }>Tab1Screen</Text>
+      <Text style={ styles.text }>AlbumScreen</Text>
     </View>
   )
 }

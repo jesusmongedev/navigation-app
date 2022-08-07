@@ -8,8 +8,9 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { ColorPalette } from '../constants';
 import { styles } from '../theme/appTheme';
 
-import { RootDrawerParams } from '../models/StackNavigator';
 import { Tabs } from './Tabs';
+
+import { RootDrawerParams } from '../models/StackNavigator';
 import { ProfileScreen, SettingsScreen } from '../screens';
 
 const Drawer = createDrawerNavigator<RootDrawerParams>();
@@ -79,7 +80,7 @@ const DrawerContent = ( props: DrawerContentComponentProps ) => {
 
         {/* Custom */}
         <View style={ drawerStyles.drawerList }>
-
+          
           <TouchableOpacity 
             onPress={ () => { navigation.navigate('Tabs') }}
             style={ drawerStyles.drawerBtn }>

@@ -21,3 +21,9 @@ export type BottomTabParams = {
     'Tab2Screen': undefined,
     'StackNavigator': undefined
 }
+
+export type TopTabParams = {
+    'Chat': undefined,
+    'Contacs': undefined,
+    'Albums': undefined
+}
