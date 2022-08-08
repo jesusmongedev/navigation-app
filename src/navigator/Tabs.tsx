@@ -1,5 +1,6 @@
 import React from 'react';
 import {Platform, Text} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
@@ -14,34 +15,32 @@ import { TopTabNavigator } from './MaterialTopTab';
 export const Tabs = () => Platform.OS === 'android' ? <TabAndroid/> : <TabIOS/>
 
 
-const BottomTabAndroid = createMaterialBottomTabNavigator();
+const BottomTabAndroid = createMaterialBottomTabNavigator<BottomTabParams>();
 
 const TabAndroid = () => {
   return (
     <BottomTabAndroid.Navigator
       sceneAnimationEnabled={true}
-      barStyle={{ backgroundColor: ColorPalette.primaryColor }}
+      barStyle={{ backgroundColor: 'white' }}
       
       screenOptions= {({route}) => ({ 
         tabBarIcon: ({ color, focused }) => {
 
           const {name} = route
 
-          console.log(JSON.stringify({color, focused, name}, null, 2));
-
           let iconName: string = "";
           
           switch (name) {
             case 'Tab1Screen':
-              iconName = '🔷'
-              break;
-
-            case 'Tab2Screen':
-              iconName = '🖤'
+              iconName = 'airplane-outline'
               break;
 
             case 'StackNavigator':
-              iconName = '❌'
+              iconName = 'bed-outline'
+              break;
+
+            case 'Tab2Screen':
+              iconName = 'key-outline'
               break;
 
           
@@ -49,7 +48,7 @@ const TabAndroid = () => {
               break;
           }
 
-          return <Text>{ iconName }</Text>
+          return <Icon name={ iconName } size={20} color={ColorPalette.primaryColor} />
         }
       })}
         

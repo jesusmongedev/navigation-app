@@ -2,8 +2,8 @@ import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { AlbumScreen, ChatScreen, ContactScreen } from '../screens';
 import { TopTabParams } from '../models/StackNavigator';
-import { Text } from 'react-native';
 import { ColorPalette } from '../constants';
+import Icon  from 'react-native-vector-icons/Ionicons';
 
 const Tab = createMaterialTopTabNavigator<TopTabParams>();
 
@@ -31,15 +31,15 @@ export const TopTabNavigator = () => {
           
           switch (name) {
             case 'Chat':
-              iconName = '🔷'
+              iconName = 'chatbox-ellipses-outline'
               break;
 
             case 'Contacs':
-              iconName = '🖤'
+              iconName = 'people-outline'
               break;
 
             case 'Albums':
-              iconName = '❌'
+              iconName = 'images-outline'
               break;
 
           
@@ -47,7 +47,7 @@ export const TopTabNavigator = () => {
               break;
           }
 
-          return <Text >{ iconName }</Text>
+          return <Icon name={iconName} size={20} color={ColorPalette.primaryColor} />
         }
         
       })}
