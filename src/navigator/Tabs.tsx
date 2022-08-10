@@ -22,7 +22,6 @@ const TabAndroid = () => {
     <BottomTabAndroid.Navigator
       sceneAnimationEnabled={true}
       barStyle={{ backgroundColor: 'white' }}
-      
       screenOptions= {({route}) => ({ 
         tabBarIcon: ({ color, focused }) => {
 

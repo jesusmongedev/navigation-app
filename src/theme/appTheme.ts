@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
         marginVertical: 14
     },
     largeButton: {
+        alignItems: 'center',
         padding: 20,
         backgroundColor: ColorPalette.primaryColor,
         borderRadius: 20,
@@ -18,6 +19,7 @@ export const styles = StyleSheet.create({
         backgroundColor: ColorPalette.secondaryColor,
     },
     buttonText: {
+        marginTop: 8,
         color: 'white',
         fontWeight: 'bold',
         fontSize: 14
@@ -28,8 +30,8 @@ export const styles = StyleSheet.create({
         borderBottomColor: '#c3c3c3'
     },
     avatar: {
-        width: 80,
-        height: 80,
+        width: 64,
+        height: 64,
         borderRadius: 50,
     },
     avatarDescription: {

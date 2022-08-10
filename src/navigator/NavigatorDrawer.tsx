@@ -1,5 +1,6 @@
 import React from 'react';
 import { useWindowDimensions, Image, View, Alert, Text, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import { createDrawerNavigator, DrawerContentComponentProps, DrawerContentScrollView, DrawerItem, DrawerItemList } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -37,10 +38,10 @@ export const NavigatorDrawer = () => {
         headerStyle: {
           backgroundColor: ColorPalette.primaryColor
         },
-        drawerStyle: {
-          // backgroundColor: ColorPalette.primaryColor,
-          width: 255,
-        },
+        // drawerStyle: {
+        //   // backgroundColor: ColorPalette.primaryColor,
+        //   width: 255,
+        // },
       }}
       drawerContent = { (props) => <DrawerContent {...props} /> }
     >
@@ -62,12 +63,15 @@ const DrawerContent = ( props: DrawerContentComponentProps ) => {
       {/* Avatar section */}
       <View style={ styles.avatarContainer }>
         <Image
-          source={ { uri: 'https://lookgoodlive.com/wp-content/uploads/2021/03/Profile_avatar_placeholder_large.png' } }
+          source={ { uri: 'https://i.postimg.cc/D051zVGh/JM-Profile-Picture.jpg' } }
           style={styles.avatar}
         />
         <View style={ styles.avatarDescription }>
           <Text style={ styles.avatarName }>Jesus Monge</Text>
-          <Text style={ styles.avatarEmail }>jesus@jmongedev.com</Text>
+          <View style={{...drawerStyles.drawerBtn, justifyContent: 'space-between'}}>
+            <Text style={ styles.avatarEmail }>jesus@jmongedev.com</Text>
+            <Icon name='chevron-down-outline' color={ColorPalette.primaryColor} size={16}/>
+          </View>
         </View>
       </View>
 
@@ -84,30 +88,35 @@ const DrawerContent = ( props: DrawerContentComponentProps ) => {
           <TouchableOpacity 
             onPress={ () => { navigation.navigate('Tabs') }}
             style={ drawerStyles.drawerBtn }>
+              <Icon name='copy-outline' color={ColorPalette.primaryColor} size={16}/>
             <Text style={ drawerStyles.drawerLabel }>Tabs</Text>
           </TouchableOpacity>
 
           <TouchableOpacity 
             onPress={ () => { navigation.navigate('ProfileScreen') }}
             style={ drawerStyles.drawerBtn }>
+            <Icon name='person-outline' color={ColorPalette.primaryColor} size={16}/>
             <Text style={ drawerStyles.drawerLabel }>My Profile</Text>
           </TouchableOpacity>
           
           <TouchableOpacity 
             onPress={() => Alert.alert('Blog Page')}
             style={ drawerStyles.drawerBtn }>
+            <Icon name='book-outline' color={ColorPalette.primaryColor} size={16}/>
             <Text style={ drawerStyles.drawerLabel }>Blog</Text>
           </TouchableOpacity>
 
           <TouchableOpacity 
             onPress={() => Alert.alert('Portfolio Page')}
             style={ drawerStyles.drawerBtn }>
+            <Icon name='briefcase-outline' color={ColorPalette.primaryColor} size={16}/>
             <Text style={ drawerStyles.drawerLabel }>Portfolio</Text>
           </TouchableOpacity>
 
           <TouchableOpacity 
             onPress={() => Alert.alert('Contact Page')}
             style={ drawerStyles.drawerBtn }>
+            <Icon name='people-outline' color={ColorPalette.primaryColor} size={16}/>
             <Text style={ drawerStyles.drawerLabel }>Contact</Text>
           </TouchableOpacity>
 
@@ -121,12 +130,14 @@ const DrawerContent = ( props: DrawerContentComponentProps ) => {
             <TouchableOpacity 
               onPress={ () => { navigation.navigate('SettingsStackScreen') }}
               style={ drawerStyles.drawerBtn }>
+              <Icon name='settings-outline' color={ColorPalette.primaryColor} size={16}/>
               <Text style={ drawerStyles.drawerLabel }>Settings & account</Text>
             </TouchableOpacity>
 
             <TouchableOpacity 
               onPress={() => Alert.alert('Help & feedback')}
               style={ drawerStyles.drawerBtn }>
+              <Icon name='help-circle-outline' color={ColorPalette.primaryColor} size={16}/>
               <Text style={ drawerStyles.drawerLabel }>Help & feedback</Text>
             </TouchableOpacity>
 
@@ -143,15 +154,18 @@ const DrawerContent = ( props: DrawerContentComponentProps ) => {
 
 const drawerStyles = StyleSheet.create({
   drawer: {
-    marginHorizontal: 20,
+    marginHorizontal: 30,
   },
   drawerList: {
     marginVertical: 20,
   },
   drawerBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
     marginVertical: 5
   },
   drawerLabel: {
+    marginLeft: 16,
     fontSize: 16,
   },
   drawerFooter: {

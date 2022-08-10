@@ -8,7 +8,7 @@ import { styles } from '../theme/appTheme'
 export const Tab1Screen = () => {
   return (
     <View style={ styles.globalMargin }>
-      <Text style={ styles.title }>Ioni Icons:</Text>
+      <Text style={ styles.title }>Ion Icons:</Text>
 
       <Text>
         <Icon name="airplane-outline" size={60} color={ColorPalette.primaryColor} />
