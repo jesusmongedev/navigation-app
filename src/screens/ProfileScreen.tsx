@@ -1,15 +1,15 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text, Button } from 'react-native'
+import React, { useContext } from 'react'
 import { styles } from '../theme/appTheme';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export const ProfileScreen = () => {
 
   // Custom way to handle safe Area on devices with notch
-  const inset = useSafeAreaInsets();
+  const inset = useSafeAreaInsets();  
 
   return (
-    <View style={{marginTop: inset.top + '75%', marginLeft: inset.left + '25%'}}>
+    <View style={{marginTop: inset.top + '75%', margin: inset.left + '25%'}}>
       <Text style={styles.title}> Profile Screen </Text>
     </View>
   )

@@ -1,14 +1,18 @@
 import 'react-native-gesture-handler';
 import React from 'react'
+
 import { NavigationContainer } from '@react-navigation/native'
 import { NavigatorDrawer } from './src/navigator/NavigatorDrawer';
+import { AuthProvider } from './src/context/AuthContext';
+
 // import { BasicDrawer } from './src/navigator/BasicDrawer';
 
-export default function App() {
+export const App = () => {
   return (
     <NavigationContainer>
-      {/* <BasicDrawer/> */}
-      <NavigatorDrawer/>
+      <AuthProvider>
+        <NavigatorDrawer/>
+      </AuthProvider>
     </NavigationContainer>
   )
 }

@@ -1,9 +1,8 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-import Icon from 'react-native-vector-icons/Ionicons';
-import { ColorPalette } from '../constants';
 import { styles } from '../theme/appTheme'
+import { TouchableIcon } from '../components/TouchableIcon';
 
 export const Tab1Screen = () => {
   return (
@@ -11,18 +10,18 @@ export const Tab1Screen = () => {
       <Text style={ styles.title }>Ion Icons:</Text>
 
       <Text>
-        <Icon name="airplane-outline" size={60} color={ColorPalette.primaryColor} />
-        <Icon name="american-football-outline" size={60} color={ColorPalette.primaryColor} />
-        <Icon name="key-outline" size={60} color={ColorPalette.primaryColor} />
-        <Icon name="baseball-outline" size={60} color={ColorPalette.primaryColor} />
-        <Icon name="bed-outline" size={60} color={ColorPalette.primaryColor} />
-        <Icon name="calendar-outline" size={60} color={ColorPalette.primaryColor} />
-        <Icon name="cloudy-night-outline" size={60} color={ColorPalette.primaryColor} />
-        <Icon name="cut-outline" size={60} color={ColorPalette.primaryColor} />
-        <Icon name="laptop-outline" size={60} color={ColorPalette.primaryColor} />
-        <Icon name="fast-food-outline" size={60} color={ColorPalette.primaryColor} />
-        <Icon name="finger-print-outline" size={60} color={ColorPalette.primaryColor} />
-        <Icon name="hourglass-outline" size={60} color={ColorPalette.primaryColor} />
+        <TouchableIcon iconName='airplane-outline' />
+        <TouchableIcon iconName="american-football-outline"  />
+        <TouchableIcon iconName="key-outline"  />
+        <TouchableIcon iconName="baseball-outline"  />
+        <TouchableIcon iconName="bed-outline"  />
+        <TouchableIcon iconName="calendar-outline"  />
+        <TouchableIcon iconName="cloudy-night-outline"  />
+        <TouchableIcon iconName="cut-outline"  />
+        <TouchableIcon iconName="laptop-outline"  />
+        <TouchableIcon iconName="fast-food-outline"  />
+        <TouchableIcon iconName="finger-print-outline"  />
+        <TouchableIcon iconName="hourglass-outline"  />
       </Text>
 
     </View>
