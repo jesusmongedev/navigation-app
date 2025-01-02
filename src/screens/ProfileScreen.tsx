@@ -7,10 +7,12 @@ export default function ProfileScreen() {
 
   // Custom way to handle safe Area on devices with notch
   const inset = useSafeAreaInsets();
+  console.log('inset', inset);
+  
 
   return (
-    <View style={{marginTop: inset.top + '75%', marginLeft: inset.left + '25%'}}>
-      <Text style={styles.title}> Profile Screen </Text>
+    <View style={{marginTop: inset.top + '75%', marginLeft: inset.left + '15%'}}>
+      <Text style={styles.title}> Profile Screen working! </Text>
     </View>
   )
 }
